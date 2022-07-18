@@ -14,9 +14,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #as to not consume Resource
 app.secret_key = 'drosxo'
 api = Api(app)
 
-@app.before_first_request #this is a decorator that will affect the method below it ,and its going to run that method before the first request in this init_app
-def create_tables():
-    db.create_all() #SQLALCHEMY sees the models we imported in the main app, so for anything that subclasses db.Model ,it will create tables with the columns defined in the class
+#@app.before_first_request #this is a decorator that will affect the method below it ,and its going to run that method before the first request in this init_app
+#def create_tables():
+#    db.create_all() #SQLALCHEMY sees the models we imported in the main app, so for anything that subclasses db.Model ,it will create tables with the columns defined in the class
 
 jwt = JWT(app,authenticate,identity) # /auth
 
